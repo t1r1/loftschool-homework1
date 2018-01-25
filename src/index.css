@@ -3,3 +3,44 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+* {
+  box-sizing: content-box;
+}
+
+.news-feed {
+  width: 500px;
+  color: #fff;
+}
+
+.news-wrapper {
+  margin: 20px;
+}
+
+.news-input {
+  width: 292px;
+  padding: 10px 0px 10px 5px;
+}
+
+.news-btn {
+  margin-top: 10px;
+  width: 120px;
+  height: 24px;
+  border: 0;
+  outline: 0;
+  background: #ececec;
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  padding: 0 10px;
+  height: 36px;
+}
+.news-item {
+  margin-top: 10px;
+  color: rgba(0,0,0,0.54);
+  padding: 6px 0 6px 10px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  background-color: #c2c2c2;
+}
