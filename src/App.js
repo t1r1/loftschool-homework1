@@ -17,7 +17,10 @@ export default class App extends React.Component {
 
     onButtonClicked = () => {
         let news = this.state.newsItems
-        news.push(this.state.inputValue)
+        if (this.state.inputValue !== "") {
+            news.push(this.state.inputValue)
+        }
+       
         this.setState({newsItems: news, inputValue: ""})
     }
     render() {
@@ -25,7 +28,13 @@ export default class App extends React.Component {
             <div className="news-wrapper">
                 <input type="text" className="news-input" value={this.state.inputValue} onChange={this.handleChange} placeholder="Что нового?"/>
                 <button className="news-btn" onClick={this.onButtonClicked}>Рассказать</button>
-                <NewsPost newsItems={this.state.newsItems}/>
+                <div className="news-feed">
+                    {this.state.newsItems.map((item, i) => {
+                        return (
+                            <NewsPost key={i} newsItem={item}/>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
