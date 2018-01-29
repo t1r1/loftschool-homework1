@@ -21,7 +21,7 @@ export default class App extends React.Component {
             news.push({ text: newsInput })
         }
        
-        this.setState({ news, newsInput: "" })
+        this.setState({news: [...news, newsInput], newsInput: ""})
     }
     render() {
         return (
