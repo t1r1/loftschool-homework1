@@ -4,48 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  margin: 0 auto;
-  width: 600px;
+html, body, #root {
+  height: 100%;
 }
-
-.tab-panel {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.form-content {
-  padding: 0 20px;
-}
-
-.personal-form {
-  margin-top: 15px;
-} 
-
-.form-content input {
-  width: 300px;
-  padding: 10px;
-  margin-bottom: 12px;
-}
-
-.button-next {
-  display: block;
-  padding: 10px 39px;
-  cursor: pointer;
-  background-color: lightgreen;
-}
-
-.button-panel {
-  margin-top: 10px;
-}
-
-.button-next:disabled {
-  background-color: #eeeeee;
-}
-
-.congrats {
-  margin: 20px 0;
-}
-
