@@ -4,43 +4,48 @@ body {
   font-family: sans-serif;
 }
 
-* {
-  box-sizing: content-box;
+.container {
+  margin: 0 auto;
+  width: 600px;
 }
 
-.news-feed {
-  width: 500px;
-  color: #fff;
+.tab-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-.news-wrapper {
-  margin: 20px;
+.form-content {
+  padding: 0 20px;
 }
 
-.news-input {
-  width: 292px;
-  padding: 10px 0px 10px 5px;
+.personal-form {
+  margin-top: 15px;
+} 
+
+.form-content input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 12px;
 }
 
-.news-btn {
-  margin-top: 10px;
-  width: 120px;
-  height: 24px;
-  border: 0;
-  outline: 0;
-  background: #ececec;
+.button-next {
   display: block;
+  padding: 10px 39px;
   cursor: pointer;
-  padding: 0;
-  text-align: left;
-  padding: 0 10px;
-  height: 36px;
+  background-color: lightgreen;
 }
-.news-item {
+
+.button-panel {
   margin-top: 10px;
-  color: rgba(0,0,0,0.54);
-  padding: 6px 0 6px 10px;
-  font-size: 15px;
-  margin-bottom: 10px;
-  background-color: #c2c2c2;
 }
+
+.button-next:disabled {
+  background-color: #eeeeee;
+}
+
+.congrats {
+  margin: 20px 0;
+}
+
