@@ -38,7 +38,7 @@ class App extends Component {
 
         <hr/>
         <Switch>
-          <Route exact path="/" component={Home} something={1}/>
+          <Route exact path="/" component={Home}/>
           {
             this.state.isAuthorized ? 
             <Route path="/private" component={Private}/>

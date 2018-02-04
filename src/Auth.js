@@ -31,8 +31,20 @@ class Auth extends Component {
     return (
       isAuthorized ? <Redirect to="/"/> : 
       <div>
-          <input value={this.state.email} name="email" onChange={this.handleChange} type="email" placeholder="e-mail"/>
-          <input value={this.state.password} name="password" type="password" onChange={this.handleChange} placeholder="password"/>
+          <input 
+            value={this.state.email} 
+            name="email" 
+            onChange={this.handleChange} 
+            type="email" 
+            placeholder="e-mail"
+          />
+          <input 
+            value={this.state.password} 
+            name="password" 
+            type="password" 
+            onChange={this.handleChange} 
+            placeholder="password"
+          />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         {this.state.showError && <p className="error">Неправильный логин или пароль</p>}
       </div>
