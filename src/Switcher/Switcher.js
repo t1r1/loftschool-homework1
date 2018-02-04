@@ -34,15 +34,16 @@ class Switcher extends Component {
                     }
                 </ul>
             </nav>
-            
         )
     }
     render() {
+        let { children } = this.props
+        let { selectedChild } = this.state
         return (
             <div>
                 {this.renderNavigation()}
                 <hr/>
-                {this.props.children[this.state.selectedChild]}
+                {React.Children.toArray(children)[selectedChild]}
             </div>
         );
     }

@@ -4,14 +4,21 @@ import CardNumberInput from './CardNumberInput'
 class CardNumberHolder extends Component {
   static displayName = 'Card number formating'
 
+  state = {
+    cardNumber: ""
+  }
+
   handleChange = value => {
-    console.log(value)
+    this.setState({cardNumber: value})
   }
   render() {
     return (
       <div>
         CardNumberHolder
-        <CardNumberInput cardNumber="" onChange={this.handleChange}/>
+        <CardNumberInput 
+          cardNumber={this.state.cardNumber} 
+          onChange={this.handleChange}
+        />
       </div>
     );
   }
