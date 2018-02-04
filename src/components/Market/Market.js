@@ -33,7 +33,7 @@ const getNewOrder = () => {
 
 export class Market extends Component {
   render() {
-    return <div />;
+    return (<div>Market</div>)
   }
 }
 
