@@ -31,9 +31,36 @@ const getNewOrder = () => {
   };
 };
 
+
 export class Market extends Component {
+  state = {
+    orders: []
+  }
+
+  handleClick = () => {
+    let { orders } = this.state
+    let order = getNewOrder()
+    orders.push(order)
+    this.setState({orders})
+
+  }
+
   render() {
-    return (<div>Market</div>)
+    return (
+      <div className="market">
+        <button className="new-orders__create-button" onClick={this.handleClick}>Создать заказ</button>
+        <button>Отправить заказ на ферму</button>
+        <div className="order-list">
+          {this.state.orders.map((item, i) => {
+            return (
+              <div className="order" key={item.id}>
+                {item.id} {item.name} {item.price}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
   }
 }
 

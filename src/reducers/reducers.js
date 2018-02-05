@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
+import budgetReducer from './budget'
 
-const FarmMarket = combineReducers({
-    // budget,
+const rootReducer = combineReducers({
+    budgetReducer,
     // market,
     // farm
 });
 
-export default FarmMarket;
+export default rootReducer;
