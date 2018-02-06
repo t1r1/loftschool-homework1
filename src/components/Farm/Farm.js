@@ -1,21 +1,22 @@
 import React from 'react'
 import {moveOrderToCustomer} from '../../actions/farmActions'
 import {connect} from 'react-redux'
-import Store from '../../store'
+import store from '../../store'
 
 class Farm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            deliveryExpanse: 0
+            deliveryExpanse: props.deliveryExpanse
         }
     }
    
 
     handleClick = () => {
-        
+        // store.dispatch({type: moveOrderToCustomer})
     }
     render() {
+        console.log(this.props)
         return (
             <div className="farm">
                 <button onClick={this.handleClick}>Отправить урожай клиенту</button>
@@ -29,7 +30,6 @@ class Farm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    let {deliveryExpanse} = this.state
     return {
         deliveryExpanse: state.deliveryExpanse
     }

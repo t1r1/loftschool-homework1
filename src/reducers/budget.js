@@ -1,6 +1,4 @@
-import * as types from "../actions/farmTypes";
-
-
+import * as types from "../actions/actionTypes";
 
 const initialState = {
     deliveryExpanse: 0,
@@ -12,9 +10,12 @@ const budgetReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.MOVE_ORDER_TO_CUSTOMER:
             return Object.assign({}, state, {
-                deliveryExpanse: action.data
+                deliveryExpanse: state.deliveryExpanse + 20
             })
-
+        case types.CREATE_ORDER:
+            return Object.assign({}, state, {
+                profit: action.payload.price
+            })
         default:
             return state;
     }
