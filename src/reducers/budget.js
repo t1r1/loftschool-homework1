@@ -7,6 +7,7 @@ const initialState = {
 }
 
 const budgetReducer = (state = initialState, action) => {
+    console.log(state, 'budgetReducer')
     switch (action.type) {
         case types.MOVE_ORDER_TO_CUSTOMER:
             return Object.assign({}, state, {

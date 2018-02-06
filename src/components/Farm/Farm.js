@@ -1,7 +1,8 @@
 import React from 'react'
-import {moveOrderToCustomer} from '../../actions/farmActions'
 import {connect} from 'react-redux'
 import store from '../../store'
+import {moveOrderToCustomer} from '../../actions/farmActions'
+
 
 class Farm extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Farm extends React.Component {
    
 
     handleClick = () => {
-        // store.dispatch({type: moveOrderToCustomer})
+        store.dispatch(moveOrderToCustomer(20))
     }
     render() {
         console.log(this.props)
@@ -31,7 +32,7 @@ class Farm extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        deliveryExpanse: state.deliveryExpanse
+        deliveryExpanse: state.budgetState.deliveryExpanse
     }
   }
   
