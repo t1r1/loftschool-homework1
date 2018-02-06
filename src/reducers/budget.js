@@ -14,7 +14,7 @@ const budgetReducer = (state = initialState, action) => {
             })
         case types.CREATE_ORDER:
             return Object.assign({}, state, {
-                profit: action.payload.price
+                profit: action.payload
             })
         default:
             return state;
