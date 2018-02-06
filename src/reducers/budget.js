@@ -16,6 +16,11 @@ const budgetReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 profit: action.payload
             })
+        case types.MOVE_ORDER_TO_FARM:
+            return Object.assign({}, state, {
+                farmExpanse: action.payload
+            })
+
         default:
             return state;
     }

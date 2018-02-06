@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './Market.css';
-import {createOrder} from '../../actions/marketActions'
+import {createOrder, moveOrderToFarm} from '../../actions/marketActions'
 import {moveOrderToCustomer} from '../../actions/farmActions'
-
 import {connect} from 'react-redux';
+
+const EXPENCES = 20; 
+
 let id = 0;
 const getId = () => {
   id += 1;
@@ -39,24 +41,30 @@ export class Market extends Component {
     orders: []
   }
 
-  handleClick = () => {
+  createOrder = () => {
     let { orders } = this.state
     let order = getNewOrder()
     orders.push(order)
     this.setState({orders})
-
     this.props.addOrder(order)
     this.props.addPrice(order.price)
-    this.props.addExpense(20)
+    this.props.addFarmExpense(100)
 
   }
+
+  sendToFarm = () => {
+    this.props.moveToDelivery(20)
+  }
+
+
+
 
   render() {
     console.log(this.props)
     return (
       <div className="market">
-        <button className="new-orders__create-button" onClick={this.handleClick}>Создать заказ</button>
-        <button>Отправить заказ на ферму</button>
+        <button className="new-orders__create-button" onClick={this.createOrder}>Создать заказ</button>
+        <button onClick={this.sendToFarm}>Отправить заказ на ферму</button>
         <div className="order-list">
           {this.state.orders.map((item, i) => {
             return (
@@ -86,7 +94,10 @@ const mapDispatchToProps = (dispatch) => {
     addPrice: (orderPrice) => {
       dispatch(createOrder(orderPrice))
     },
-    addExpense: (amount) => {
+    addFarmExpense: (amount) => {
+      dispatch(moveOrderToFarm(amount))
+    },
+    moveToDelivery: (amount) => {
       dispatch(moveOrderToCustomer(amount))
     }
 

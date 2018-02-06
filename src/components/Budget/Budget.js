@@ -4,16 +4,17 @@ import {connect} from 'react-redux'
 class Budget extends React.Component {
 
     sumAll() {
-        return this.props.budget.profit - this.props.budget.deliveryExpanse
+        let {profit, deliveryExpanse, farmExpanse} = this.props.budget
+        return profit - deliveryExpanse - farmExpanse
     }
     render () {
-        let {deliveryExpanse} = this.props.budget
+        let {profit, deliveryExpanse, farmExpanse} = this.props.budget
         return (
             <div className="budget">
-                <p>Всего получено денег {this.props.budget.profit}</p>
-                <p>Расходы продавцов</p>
-                <p>Расходы на ферме</p>
-                <p>Расходы на доставку -{deliveryExpanse}</p>
+                <p>Всего получено денег {profit}</p>
+                <p>Расходы продавцов {deliveryExpanse} </p>
+                <p>Расходы на ферме {'-' + farmExpanse}</p>
+                <p>Расходы на доставку {'-' + deliveryExpanse}</p>
                 <p>Итого {this.sumAll()}</p>
             </div>
         )
