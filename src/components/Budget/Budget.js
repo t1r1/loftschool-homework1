@@ -1,15 +1,33 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
-export default class Budget extends React.Component {
+class Budget extends React.Component {
+
+    sumAll() {
+        return this.props.budget.deliveryExpanse 
+    }
     render () {
+        let {deliveryExpanse} = this.props.budget
         return (
             <div className="budget">
                 <p>Всего получено денег</p>
                 <p>Расходы продавцов</p>
                 <p>Расходы на ферме</p>
-                <p>Расходы на доставку</p>
-                <p>Итого</p>
+                <p>Расходы на доставку -{deliveryExpanse}</p>
+                <p>Итого {this.sumAll()}</p>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        budget: state.budgetState
+    }
+  }
+
+  
+export default connect(
+    mapStateToProps
+)(Budget)
+    

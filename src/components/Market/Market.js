@@ -52,9 +52,10 @@ export class Market extends Component {
         <button>Отправить заказ на ферму</button>
         <div className="order-list">
           {this.state.orders.map((item, i) => {
+            console.log(item.createdAt)
             return (
               <div className="order" key={item.id}>
-                {item.id} {item.name} {item.price}
+                {item.id} Название: {item.name} Цена: {item.price} <br/> Создан: {String(item.createdAt)}
               </div>
             )
           })}

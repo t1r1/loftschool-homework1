@@ -1,4 +1,4 @@
-import * as types from "../actions/actionTypes";
+import * as types from "../actions/marketTypes";
 
 const initialState = {
     deliveryExpanse: 0,
@@ -7,11 +7,10 @@ const initialState = {
 }
 
 const budgetReducer = (state = initialState, action) => {
-    console.log(state, 'budgetReducer')
     switch (action.type) {
         case types.MOVE_ORDER_TO_CUSTOMER:
             return Object.assign({}, state, {
-                deliveryExpanse: state.deliveryExpanse + 20
+                deliveryExpanse: action.payload
             })
         case types.CREATE_ORDER:
             return Object.assign({}, state, {

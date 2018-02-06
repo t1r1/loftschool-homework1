@@ -8,13 +8,15 @@ class Farm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            deliveryExpanse: props.deliveryExpanse
+            deliveryExpanse: 0
         }
     }
    
 
     handleClick = () => {
-        store.dispatch(moveOrderToCustomer(20))
+        let {deliveryExpanse} = this.state
+        this.props.addExpense(deliveryExpanse + 20)
+        this.setState({deliveryExpanse: deliveryExpanse + 20})
     }
     render() {
         console.log(this.props)
@@ -35,9 +37,19 @@ const mapStateToProps = (state) => {
         deliveryExpanse: state.budgetState.deliveryExpanse
     }
   }
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      addExpense: (amount) => {
+        dispatch(moveOrderToCustomer(amount))
+      }
+    }
+  }
+
   
   export default connect(
-      mapStateToProps
+      mapStateToProps,
+      mapDispatchToProps
   )(Farm)
       
   
