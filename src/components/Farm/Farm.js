@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import store from '../../store'
-import {moveOrderToCustomer} from '../../actions/farmActions'
+import {moveOrderToCustomer} from '../../actions/marketActions'
 
 
 class Farm extends React.Component {
@@ -14,9 +13,9 @@ class Farm extends React.Component {
    
 
     handleClick = () => {
-        let {deliveryExpanse} = this.state
-        this.props.addExpense(deliveryExpanse + 20)
-        this.setState({deliveryExpanse: deliveryExpanse + 20})
+        console.log('farm, handleclick')
+        this.props.deliverToCustomer(20)
+       
     }
     render() {
         console.log(this.props)
@@ -40,8 +39,9 @@ const mapStateToProps = (state) => {
 
   const mapDispatchToProps = (dispatch) => {
     return {
-      addExpense: (amount) => {
-        dispatch(moveOrderToCustomer(amount))
+      deliverToCustomer: () => {
+          console.log('deliverToCustomer')
+        dispatch(moveOrderToCustomer())
       }
     }
   }

@@ -1,5 +1,3 @@
-import * as types from "./farmTypes";
-
 
 export function moveOrderToCustomer(data) {
     return {
