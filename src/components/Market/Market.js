@@ -35,29 +35,22 @@ const getNewOrder = () => {
 
 
 export class Market extends Component {
-  state = {
-    orders: []
-  }
 
   createOrder = () => {
-    let { orders } = this.state
     let order = getNewOrder()
-    orders.push(order)
-    this.setState({orders})
-    console.log(orders[orders.length - 1])
     this.props.addOrder(order)
 
   }
 
   sendToFarm = () => {
     let {orders} = this.props
-    this.props.moveOrderToFarm(orders[orders.length - 1])
+    console.log('последний заказ ', orders[orders.length - 1])
+    this.props.sendOrderToFarm(orders[orders.length - 1])
   }
 
 
 
   render() {
-    console.log(this.props)
     return (
       <div className="market">
         <button className="new-orders__create-button" onClick={this.createOrder}>Создать заказ</button>
@@ -88,8 +81,8 @@ const mapDispatchToProps = (dispatch) => {
     addOrder: (order) => {
       dispatch(createOrder(order))
     },
-    moveOrderToFarm: (amount) => {
-      dispatch(moveOrderToFarm(amount))
+    sendOrderToFarm: (order) => {
+      dispatch(moveOrderToFarm(order))
     },
   }
 }
