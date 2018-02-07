@@ -12,9 +12,9 @@ class Budget extends React.Component {
         return (
             <div className="budget">
                 <p>Всего получено денег {profit}</p>
-                <p>Расходы продавцов {'-' + marketExpanse} </p>
-                <p>Расходы на ферме {'-' + farmExpanse}</p>
-                <p>Расходы на доставку {'-' + deliveryExpanse}</p>
+                <p>Расходы продавцов {-marketExpanse} </p>
+                <p>Расходы на ферме {-farmExpanse}</p>
+                <p>Расходы на доставку {-deliveryExpanse}</p>
                 <p>Итого {this.sumAll()}</p>
             </div>
         )
