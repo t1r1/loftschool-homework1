@@ -44,12 +44,14 @@ export class Market extends Component {
     let order = getNewOrder()
     orders.push(order)
     this.setState({orders})
+    console.log(orders[orders.length - 1])
     this.props.addOrder(order)
 
   }
 
   sendToFarm = () => {
-    this.props.moveOrderToFarm()
+    let {orders} = this.props
+    this.props.moveOrderToFarm(orders[orders.length - 1])
   }
 
 
