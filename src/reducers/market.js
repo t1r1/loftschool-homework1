@@ -1,4 +1,4 @@
-import * as types from "../actions/marketTypes";
+import {CREATE_ORDER, MOVE_ORDER_TO_FARM} from "../actions/marketTypes";
 
 const initialState = {
    orders: []
@@ -6,9 +6,9 @@ const initialState = {
 
 const marketReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.CREATE_ORDER:
+        case CREATE_ORDER:
             return {orders: state.orders.concat(action.payload)};   
-        case types.MOVE_ORDER_TO_FARM:
+        case MOVE_ORDER_TO_FARM:
             return Object.assign({}, state, {
                 orders: [...state.orders.filter((item) => {
                     return item.id !== action.payload.id

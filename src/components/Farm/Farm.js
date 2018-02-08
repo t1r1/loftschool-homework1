@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {moveOrderToCustomer} from '../../actions/marketActions'
+import {moveOrderToCustomer} from '../../actions/farmActions'
 
 
 class Farm extends React.Component {
