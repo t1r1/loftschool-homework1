@@ -11,7 +11,6 @@ const initialState = {
 const budgetReducer = (state = initialState, action) => {
     switch (action.type) {
         case MOVE_ORDER_TO_CUSTOMER:
-
             return Object.assign({}, state, {
                 deliveryExpanse: state.deliveryExpanse + 20
             })
