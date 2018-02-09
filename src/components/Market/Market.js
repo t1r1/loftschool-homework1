@@ -35,16 +35,13 @@ const getNewOrder = () => {
 
 
 export class Market extends Component {
-
   createOrder = () => {
     let order = getNewOrder()
     this.props.addOrder(order)
-
   }
 
   sendToFarm = () => {
     let {orders} = this.props
-    console.log('последний заказ ', orders[orders.length - 1])
     this.props.sendOrderToFarm(orders[orders.length - 1])
   }
 
@@ -54,7 +51,7 @@ export class Market extends Component {
     return (
       <div className="market">
         <button className="new-orders__create-button" onClick={this.createOrder}>Создать заказ</button>
-        <button onClick={this.sendToFarm}>Отправить заказ на ферму</button>
+        <button disabled={this.props.orders.length === 0} onClick={this.sendToFarm}>Отправить заказ на ферму</button>
         <div className="order-list">
           {this.props.orders.map((item, i) => {
             return (

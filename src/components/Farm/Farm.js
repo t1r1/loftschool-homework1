@@ -4,15 +4,12 @@ import {moveOrderToCustomer} from '../../actions/farmActions'
 
 
 class Farm extends React.Component {
-   
-
     handleClick = () => {
         let {orders} = this.props
         this.props.deliverToCustomer(orders[orders.length - 1])
        
     }
     render() {
-        console.log(this.props.orders, ' Farm')
         return (
             <div className="farm">
                 <h1>Производство на ферме</h1>
@@ -26,10 +23,6 @@ class Farm extends React.Component {
                         })}
             </div>
                 <button onClick={this.handleClick}>Отправить урожай клиенту</button>
-                <div>
-                    <div className="order">
-                    </div>
-                </div>
             </div>
         )
     }
@@ -45,12 +38,10 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = (dispatch) => {
     return {
       deliverToCustomer: (order) => {
-          console.log('deliverToCustomer')
         dispatch(moveOrderToCustomer(order))
       }
     }
   }
-
   
   export default connect(
       mapStateToProps,

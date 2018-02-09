@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux'
 
 class Budget extends React.Component {
-
     sumAll() {
         let {profit, deliveryExpanse, farmExpanse,  marketExpanse} = this.props.budget
         return profit - deliveryExpanse - farmExpanse -  marketExpanse
