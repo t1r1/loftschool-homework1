@@ -9,10 +9,11 @@ const marketReducer = (state = initialState, action) => {
         case CREATE_ORDER:
             return {orders: state.orders.concat(action.payload)};   
         case MOVE_ORDER_TO_FARM:
-            return Object.assign({}, state, {
-                orders: [...state.orders.filter((item) => {
-                    return item.id !== action.payload.id
-                })]})  
+                let orders = state.orders.filter( item => item.id !== action.payload.id )
+                return {
+                    ...state, 
+                    orders
+                }
         default:
             return state;
     }

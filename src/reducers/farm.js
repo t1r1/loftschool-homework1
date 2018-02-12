@@ -10,10 +10,11 @@ const farmReducer = (state = initialState, action) => {
         case MOVE_ORDER_TO_FARM:
             return {orders: state.orders.concat(action.payload)};   
         case MOVE_ORDER_TO_CUSTOMER:
-            return Object.assign({}, state, {
-                orders: [...state.orders.filter((item) => {
-                    return item.id !== action.payload.id
-                })]})
+            let orders = state.orders.filter( item => item.id !== action.payload.id )
+            return {
+                ...state, 
+                orders
+            }
         default:
             return state;
     }

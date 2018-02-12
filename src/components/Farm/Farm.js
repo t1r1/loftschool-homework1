@@ -1,20 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {moveOrderToCustomer} from '../../actions/farmActions'
+import './Farm.css'
 
 
 class Farm extends React.Component {
     handleClick = () => {
         let {orders} = this.props
         this.props.deliverToCustomer(orders[orders.length - 1])
-       
     }
+
+    
     render() {
         return (
             <div className="farm">
-                <h1>Производство на ферме</h1>
+                <h2>Производство на ферме</h2>
                     <div className="order-list">
-                        {this.props.orders.map((item, i) => {
+                        {this.props.orders.map(item => {
                             return (
                             <div className="order" key={item.id}>
                                 {item.id} Название: {item.name} Цена: {item.price} <br/> Создан: {String(item.createdAt)}
@@ -28,10 +30,13 @@ class Farm extends React.Component {
     }
 }
 
+const getBudget = state => state.budgetState.deliveryExpanse
+const getOrders = state => state.farmState.orders
+
 const mapStateToProps = (state) => {
     return {
-        deliveryExpanse: state.budgetState.deliveryExpanse,
-        orders: state.farmState.orders
+        deliveryExpanse: getBudget(state),
+        orders: getOrders(state)
     }
   }
 

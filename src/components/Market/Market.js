@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Market.css';
+import '../Order/Order.css'
 import {createOrder, moveOrderToFarm} from '../../actions/marketActions'
 import {connect} from 'react-redux';
 
@@ -48,12 +49,14 @@ export class Market extends Component {
 
 
   render() {
+    let buttonDisabled = this.props.orders.length === 0
     return (
       <div className="market">
+        <h2>Новые заказы в магазине</h2>
         <button className="new-orders__create-button" onClick={this.createOrder}>Создать заказ</button>
-        <button disabled={this.props.orders.length === 0} onClick={this.sendToFarm}>Отправить заказ на ферму</button>
+        <button disabled={buttonDisabled} onClick={this.sendToFarm}>Отправить заказ на ферму</button>
         <div className="order-list">
-          {this.props.orders.map((item, i) => {
+          {this.props.orders.map(item => {
             return (
               <div className="order" key={item.id}>
                 {item.id} Название: {item.name} Цена: {item.price} <br/> Создан: {String(item.createdAt)}
@@ -66,10 +69,13 @@ export class Market extends Component {
   }
 }
 
+const getBudget = state => state.budgetState
+const getOrders = state => state.marketState.orders
+
 const mapStateToProps = (state) => {
   return {
-    orders: state.marketState.orders,
-    budget: state.budgetState
+    orders: getOrders(state),
+    budget: getBudget(state)
   }
 };
 

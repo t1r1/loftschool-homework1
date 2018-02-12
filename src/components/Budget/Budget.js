@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import './Budget.css'
 
 class Budget extends React.Component {
     sumAll() {
@@ -14,15 +15,16 @@ class Budget extends React.Component {
                 <p>Расходы продавцов {-marketExpanse} </p>
                 <p>Расходы на ферме {-farmExpanse}</p>
                 <p>Расходы на доставку {-deliveryExpanse}</p>
-                <p>Итого {this.sumAll()}</p>
+                <span className="t-total">Итого {this.sumAll()}</span>
             </div>
         )
     }
 }
 
+const getBudget = state => state.budgetState
 const mapStateToProps = (state) => {
     return {
-        budget: state.budgetState
+        budget: getBudget(state)
     }
   }
 
