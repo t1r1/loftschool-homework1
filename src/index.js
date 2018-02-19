@@ -8,6 +8,8 @@ import {BrowserRouter} from 'react-router-dom';
 
 const store = getStore();
 
+console.log('homework6')
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
